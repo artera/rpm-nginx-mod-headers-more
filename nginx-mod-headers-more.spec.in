@@ -1,7 +1,7 @@
 Summary: Set and clear input and output headers
 Name: nginx-mod-headers-more
-Version: 0.33
-Release: 2%{?dist}
+Version: 0.34
+Release: 1%{?dist}
 Vendor: Artera
 URL: https://github.com/openresty/headers-more-nginx-module
 
@@ -23,7 +23,6 @@ BuildRequires: pcre-devel
 BuildRequires: zlib-devel
 BuildRequires: perl-devel
 BuildRequires: gd-devel
-BuildRequires: GeoIP-devel
 BuildRequires: libxslt-devel
 BuildRequires: perl-devel
 BuildRequires: perl(ExtUtils::Embed)
@@ -42,6 +41,7 @@ Set and clear input and output headers.
 
 %build
 cd %{_builddir}/nginx-%{_nginxver}
+export CFLAGS="$CFLAGS -Wno-error=cast-function-type"
 ./configure %(nginx -V 2>&1 | grep 'configure arguments' | sed -r 's@^[^:]+: @@') --add-dynamic-module=../%{_modname}-nginx-module-%{version}
 make modules
 
