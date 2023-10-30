@@ -5,7 +5,7 @@
 
 Summary: Set and clear input and output headers
 Name: nginx-mod-headers-more
-Version: 0.34
+Version: 0.35
 Release: 1%{?dist}
 Vendor: Artera
 URL: https://github.com/openresty/headers-more-nginx-module
